@@ -1,0 +1,14 @@
+{
+    "db_settings": {
+        "host": "10.0.1.83",
+        "port": 5432,
+        "user": "osm",
+        "pwd": "geoserver",
+        "db_name": "db_gis_core_gsp_op_3"
+
+    },
+    "uvicorn_settings": {
+        "host": "127.0.0.1",
+        "port": 8882
+    }
+}
