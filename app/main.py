@@ -20,7 +20,7 @@ PROTECTED = [Depends(verify_token)]
 app.include_router(auth.router, dependencies=[])
 app.include_router(product.router, dependencies=PROTECTED)
 app.include_router(bucket.router, dependencies=[])
-app.include_router(categories.router, dependencies=[])
+app.include_router(categories.router, dependencies=PROTECTED)
 app.include_router(view_prouct_categories.router, dependencies=[])
 
 
