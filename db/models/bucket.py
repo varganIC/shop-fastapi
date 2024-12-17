@@ -1,12 +1,12 @@
 from sqlalchemy import (
     Column,
     ForeignKey,
-    Integer,
+    Integer
 )
-from sqlalchemy.orm import relationship
+from sqlalchemy.sql import expression
 
-
-from db.models.common import Base, decorator
+from common.helpers import decorator
+from db.models.common import Base
 
 
 @decorator("_asdict")
@@ -26,4 +26,8 @@ class Bucket(Base):
         nullable=False,
         index=True
     )
-    quantity = Column(Integer, nullable=False, default=1)
+    quantity = Column(
+        Integer,
+        nullable=False,
+        server_default=expression.literal(1)
+    )

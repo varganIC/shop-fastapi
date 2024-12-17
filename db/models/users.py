@@ -1,9 +1,11 @@
 from sqlalchemy import (
     Column,
     Integer,
-    Text,
+    Text
 )
-from db.models.common import Base, decorator
+
+from common.helpers import decorator
+from db.models.common import Base
 
 
 @decorator("_asdict")

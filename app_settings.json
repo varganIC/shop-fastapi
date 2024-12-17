@@ -1,11 +1,16 @@
 {
     "db_settings": {
-        "host": "10.0.1.83",
+        "host": "localhost",
         "port": 5432,
-        "user": "osm",
-        "pwd": "geoserver",
-        "db_name": "db_gis_core_gsp_op_3"
+        "user": "postgres",
+        "pwd": "postgres",
+        "db_name": "shop"
 
+    },
+    "token_settings": {
+        "secret_key": "09d25e094faa6ca2556c818166b7a9563b93f7099f6f0f4caa6cf63b88e8d3e8",
+        "algorithm": "HS256",
+        "access_exp_minutes": 30
     },
     "uvicorn_settings": {
         "host": "127.0.0.1",

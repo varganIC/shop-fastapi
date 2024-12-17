@@ -1,12 +1,14 @@
 from sqlalchemy import (
     Column,
+    Float,
     ForeignKey,
     Integer,
-    Text,
-    Float
+    Text
 )
 from sqlalchemy.orm import relationship
-from db.models.common import Base, decorator
+
+from common.helpers import decorator
+from db.models.common import Base
 
 
 @decorator("_asdict")

@@ -1,20 +1,12 @@
 import urllib.parse
-import uuid
 from ast import literal_eval
 from os import environ
-from typing import (
-    List,
-    Optional,
-    Union
-)
 
 from pydantic import (
     BaseModel,
     BaseSettings,
-    Field,
     validator
 )
-from sqlalchemy.pool import NullPool
 
 
 class DBSettingsModel(BaseModel):
@@ -31,8 +23,15 @@ class DBSettingsModel(BaseModel):
         )
 
 
+class TokenSettings(BaseModel):
+    secret_key: str
+    algorithm: str
+    access_exp_minutes: int
+
+
 class AppSettings(BaseSettings):
     db_settings: DBSettingsModel
+    token_settings: TokenSettings
     uvicorn_settings: dict
 
     @validator("uvicorn_settings", pre=True)
@@ -45,5 +44,3 @@ class AppSettings(BaseSettings):
                     value[idx] = int(value[idx])
 
         return value
-
-
