@@ -17,11 +17,3 @@ convention = {
 metadata = MetaData(naming_convention=convention)
 
 Base = declarative_base(metadata=metadata)
-
-
-def decorator(name):
-    def wrapper(K):
-        setattr(K, name, eval(name))
-        return K
-
-    return wrapper

@@ -1,4 +1,5 @@
 import json
+
 from settings.models import AppSettings
 
 
@@ -31,5 +32,5 @@ class SettingsLoader:
 
 loader = SettingsLoader()
 db_settings = loader.app_settings.db_settings
+token_settings = loader.app_settings.token_settings
 uvicorn_settings = loader.app_settings.uvicorn_settings
-

@@ -5,7 +5,9 @@ from sqlalchemy import (
     Text
 )
 from sqlalchemy.orm import relationship
-from db.models.common import Base, decorator
+
+from common.helpers import decorator
+from db.models.common import Base
 
 
 @decorator("_asdict")
@@ -15,7 +17,7 @@ class Category(Base):
     id = Column(Integer, primary_key=True, index=True)
     name = Column(Text, nullable=False, unique=True, index=True)
     slug = Column(Text, nullable=False, unique=True)
-    image = Column(Text, nullable=False,)
+    image = Column(Text, nullable=True,)
 
     subcategories = relationship("Subcategory", back_populates="categories")
 
@@ -27,7 +29,7 @@ class Subcategory(Base):
     id = Column(Integer, primary_key=True, index=True)
     name = Column(Text, nullable=False, unique=True, index=True)
     slug = Column(Text, nullable=False, unique=True)
-    image = Column(Text, nullable=False)
+    image = Column(Text, nullable=True)
     category_id = Column(
         Integer,
         ForeignKey("category.id", ondelete='CASCADE'),
